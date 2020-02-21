@@ -1,0 +1,18 @@
+<h1>we are searching for <%= @search_term%> </h1>
+
+<table boarder="1">
+	<tr>
+		<th>Image</th>
+		<th>Id</th>
+		<th><%= if @search_term == "events" then "Title" else "Name" end %></th>
+	</tr>
+	<% @characters.each do |character| %>
+		<tr class=<%= cycle('even','odd') %>>
+			<td> <%= image_tag(character["thumbnail"]["path"]+"."+character["thumbnail"]["extension"], style: 'width:200px') %> </td>
+			<td> <%= character["id"] %> </td>
+			<td> <%= if @search_term == "events" then character["title"] else character["name"] end %> </td>
+		</tr>
+		<!--%= character %-->
+	<% end %>
+</table>
+
