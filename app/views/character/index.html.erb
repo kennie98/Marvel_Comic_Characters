@@ -8,9 +8,13 @@
 	</tr>
 	<% @characters.each do |character| %>
 		<tr class=<%= cycle('even','odd') %>>
-			<td> <%= image_tag(character["thumbnail"]["path"]+"."+character["thumbnail"]["extension"], style: 'width:200px') %> </td>
+			<td> 
+				<%= link_to character_detail_path :search_id => character["id"] do %>
+				<%= image_tag(character["thumbnail"]["path"]+"."+character["thumbnail"]["extension"], style: 'width:200px') %>
+				<% end %>
+			</td>
 			<td> <%= character["id"] %> </td>
-			<td> <%= if @search_term == "events" then character["title"] else character["name"] end %> </td>
+			<td> <%= if $search_term == "events" then character["title"] else character["name"] end %> </td>
 		</tr>
 		<!--%= character %-->
 	<% end %>

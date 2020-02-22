@@ -1,2 +1,15 @@
 <h1>Character#detail</h1>
-<p>Find me in app/views/character/detail.html.erb</p>
+<table boarder="1">
+	<tr>
+		<th>Image</th>
+		<th>Id</th>
+		<th><%= if @search_term == "events" then "Title" else "Name" end %></th>
+	</tr>
+		<tr class=<%= cycle('even','odd') %>>
+			<td> 
+				<%= image_tag(@character["thumbnail"]["path"]+"."+@character["thumbnail"]["extension"], style: 'width:200px') %>
+			</td>
+			<td> <%= @character["id"] %> </td>
+			<td> <%= if $search_term == "events" then @character["title"] else @character["name"] end %> </td>
+		</tr>
+</table>
