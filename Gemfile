@@ -35,17 +35,18 @@ gem 'bootstrap', '~>4.4.1'
 gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
 #gem 'bootstrap-sass'
 
-group :production, :test do
-	gem 'pg'
+group :production do
+  gem 'pg', '~> 1.2.2'
 end
 
 group :development, :test do
+  #gem 'sqlite3', '~> 1.4'
+  gem 'pg', '~> 1.2.2'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
 
 group :development do
-  gem 'sqlite3', '~> 1.4'
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
   gem 'web-console', '>= 3.3.0'
 end
