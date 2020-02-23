@@ -31,6 +31,9 @@ gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'httparty', '~> 0.18.0'
 gem 'json', '~> 2.3.0'
+gem 'bootstrap', '~>4.4.1'
+gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
+#gem 'bootstrap-sass'
 
 group :production, :test do
 	gem 'pg'

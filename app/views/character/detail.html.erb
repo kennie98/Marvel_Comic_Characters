@@ -1,15 +1,70 @@
-<h1>Character#detail</h1>
-<table boarder="1">
-	<tr>
-		<th>Image</th>
-		<th>Id</th>
-		<th><%= if @search_term == "events" then "Title" else "Name" end %></th>
-	</tr>
-		<tr class=<%= cycle('even','odd') %>>
-			<td> 
-				<%= image_tag(@character["thumbnail"]["path"]+"."+@character["thumbnail"]["extension"], style: 'width:200px') %>
-			</td>
-			<td> <%= @character["id"] %> </td>
-			<td> <%= if $search_term == "events" then @character["title"] else @character["name"] end %> </td>
-		</tr>
-</table>
+<div class="header-container" >
+	<h1 class="container text-white text-center"> 
+		<%= if $search_term == "events" then @character["title"] else @character["name"] end %>
+	</h1>
+</div>
+
+<div class="container">
+	<div class="row text-center">
+		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+			<!-- Card 1-->
+			<div class="card promoting-card">
+
+			  <!-- Card content -->
+
+
+			  <!-- Card image -->
+			  <div class="view overlay">
+			  <!--div class="embed-responsive embed-responsive-16by9"-->
+				<%= image_tag(@character["thumbnail"]["path"]+"."+@character["thumbnail"]["extension"], class:"card-img-top rounded-0") %>
+			  </div>
+
+			</div>
+			<!-- Card 1-->
+		</div>
+
+		<div class="col-lg-6 col-md-12 col-sm-12 col-xs-12">
+
+			<!-- Card 2 -->
+			<div class="card promoting-card">
+
+			  <!-- Card content -->
+			  <div class="card-body d-flex flex-row">
+
+			    <!-- Avatar -->
+			    <img src="/assets/marvel.png", class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+
+			    <!-- Content -->
+			    <div>
+
+			      <!-- Title -->
+			      <h6 class="card-title font-weight-bold mb-2">
+			      	<%= if $search_term == "events" then @character["title"] else @character["name"] end %>
+			      </h6>
+			      <!-- Subtitle -->
+			      <p class="card-text">ID: <%= @character["id"] %></p>
+
+			    </div>
+
+			  </div>
+
+			  <!-- Card content -->
+			  <div class="card-body text-center">
+			  		<p class="text-justify">
+			  			<%= @character["description"] %>
+			  		</p>
+			  		<% @character["urls"].each do |url| %>
+			  			<p><%= link_to url["type"], url["url"] %></p>
+			  		<% end %>
+			      	<!-- Button -->
+			      	<%= link_to character_index_path :looking_for => $search_term do %>
+			      		Go Back
+			      	<% end %>
+			  </div>
+
+			</div>
+			<!-- Card 2-->
+
+		</div>
+	</div>
+</div>

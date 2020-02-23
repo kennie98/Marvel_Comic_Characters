@@ -1,22 +1,59 @@
-<h1>we are searching for <%= @search_term%> </h1>
+<div class="header-container" >
+	<h1 class="container text-white text-center"> 
+		<%= if $search_term == "events" then "Marvel Events" else "Marvel Characters" end %> 
+	</h1>
+</div>
 
-<table boarder="1">
-	<tr>
-		<th>Image</th>
-		<th>Id</th>
-		<th><%= if @search_term == "events" then "Title" else "Name" end %></th>
-	</tr>
+<div class="container">
+	<div class="row">
 	<% @characters.each do |character| %>
-		<tr class=<%= cycle('even','odd') %>>
-			<td> 
-				<%= link_to character_detail_path :search_id => character["id"] do %>
-				<%= image_tag(character["thumbnail"]["path"]+"."+character["thumbnail"]["extension"], style: 'width:200px') %>
-				<% end %>
-			</td>
-			<td> <%= character["id"] %> </td>
-			<td> <%= if $search_term == "events" then character["title"] else character["name"] end %> </td>
-		</tr>
-		<!--%= character %-->
+		<div class="col-lg-3 col-md-6 col-sm-8 col-xs-12">
+
+			<!-- Card -->
+			<div class="card promoting-card">
+
+			  <!-- Card content -->
+			  <div class="card-body d-flex flex-row">
+
+			    <!-- Avatar -->
+			    <img src="/assets/marvel.png", class="rounded-circle mr-3" height="50px" width="50px" alt="avatar">
+
+			    <!-- Content -->
+			    <div>
+
+			      <!-- Title -->
+			      <h6 class="card-title font-weight-bold mb-2">
+			      	<%= if $search_term == "events" then character["title"] else character["name"] end %>
+			      </h6>
+			      <!-- Subtitle -->
+			      <p class="card-text">ID: <%= character["id"] %></p>
+
+			    </div>
+
+			  </div>
+
+			  <!-- Card image -->
+			  <div class="view overlay">
+			  <!--div class="embed-responsive embed-responsive-16by9"-->
+
+			    <%= image_tag(character["thumbnail"]["path"]+"."+character["thumbnail"]["extension"], class:"card-img-top rounded-0") %>
+			  </div>
+
+			  <!-- Card content -->
+			  <div class="card-body text-center">
+			      <!-- Button -->
+			      <%= link_to character_detail_path :search_id => character["id"] do %>
+			      	More Info
+			      <% end %>
+			  </div>
+
+			</div>
+			<!-- Card -->
+
+		</div>
 	<% end %>
-</table>
+	</div>
+</div>
+
+
 
