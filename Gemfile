@@ -5,8 +5,6 @@ ruby '2.5.7'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
-# Use sqlite3 as the database for Active Record
-#gem 'sqlite3', '~> 1.4'
 
 # Use Puma as the app server
 gem 'puma', '~> 4.1'
@@ -33,15 +31,13 @@ gem 'httparty', '~> 0.18.0'
 gem 'json', '~> 2.3.0'
 gem 'bootstrap', '~>4.4.1'
 gem 'rails-assets-tether', '>= 1.3.3', source: 'https://rails-assets.org'
-#gem 'bootstrap-sass'
 
 group :production do
   gem 'pg', '~> 1.2.2'
 end
 
 group :development, :test do
-  #gem 'sqlite3', '~> 1.4'
-  gem 'pg', '~> 1.2.2'
+  gem 'sqlite3', '~> 1.4'
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
