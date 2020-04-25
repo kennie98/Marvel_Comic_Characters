@@ -1,5 +1,5 @@
-# Marvel_Comic_Characters
-Marvel Comic Characters Web Page
+# Marvel_Characters
+Marvel Characters Web Page
 
 This Web page was implemented using Ruby On Rails, hosted at Heroku:
 https://marvel-comic-characters.herokuapp.com/
